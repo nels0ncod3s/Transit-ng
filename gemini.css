@@ -1,0 +1,455 @@
+/* --- Global Styles & Variables --- */
+:root {
+  --brand-color: #8a00c4;
+  --brand-color-dark: #6a009a;
+  --text-dark: #333;
+  --text-light: #555;
+  --bg-light: #f9f9f9;
+  --white: #ffffff;
+  --border-color: #ddd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* --- Header / Navbar --- */
+header {
+  background-color: var(--white);
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h2 {
+  margin: 0;
+  color: var(--brand-color);
+  font-weight: 700;
+}
+
+header nav a {
+  color: var(--text-dark);
+  text-decoration: none;
+  margin-left: 2rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: var(--brand-color);
+}
+
+/* Mobile Menu Toggle Button */
+.menu-toggle {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.menu-toggle:hover {
+  background: none;
+  transform: none;
+  color: var(--brand-color);
+}
+
+/* --- Improved Hero Section --- */
+.hero-section {
+  background: linear-gradient(
+      135deg,
+      rgba(138, 0, 196, 0.8),
+      rgba(138, 0, 196, 0.9)
+    ),
+    url("https://images.unsplash.com/photo-1596223588283-9b8f5a43be97?auto=format&fit=crop&w=1500&q=80");
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  text-align: center;
+  padding: 5rem 0;
+}
+
+.hero-section h1 {
+  font-size: clamp(2.5rem, 5vw, 3rem); /* Responsive font size */
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.hero-section .subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Form & Input Styles --- */
+#routeForm {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1 1 250px;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon .fa-solid {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: var(--white);
+  color: var(--text-dark);
+}
+
+.input-with-icon input,
+.input-with-icon select {
+  padding-left: 45px;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--brand-color);
+  box-shadow: 0 0 0 3px rgba(138, 0, 196, 0.2);
+}
+
+/* General Button Style */
+button {
+  padding: 0.9rem 2rem;
+  background-color: var(--brand-color);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: var(--brand-color-dark);
+  transform: translateY(-2px);
+}
+
+/* Specific button for Hero section */
+.hero-button {
+  background-color: var(--white);
+  color: var(--brand-color);
+  font-weight: 700;
+}
+.hero-button:hover {
+  background-color: #f0f0f0;
+  color: var(--brand-color-dark);
+}
+
+/* --- Results --- */
+.results-container {
+  padding: 3rem 0;
+}
+
+#result {
+  margin-top: 1rem;
+  padding: 1.5rem 2rem;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+/* --- CTA Banner --- */
+.cta-banner {
+  background-color: #ede0f3;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.cta-banner .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta-content {
+  max-width: 500px;
+}
+
+.cta-content h2 {
+  font-size: 2.2rem;
+  color: var(--brand-color);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-image img {
+  max-width: 250px;
+  height: auto;
+}
+
+#addRouteBtn {
+  display: inline-block; /* To respect padding and margins */
+}
+
+/* --- Footer --- */
+footer {
+  background-color: var(--text-dark);
+  color: #f0f0f0;
+  padding: 3rem 0 1.5rem 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-about,
+.footer-links,
+.footer-social {
+  flex: 1;
+  min-width: 200px;
+}
+
+footer h3,
+footer h4 {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+footer p {
+  line-height: 1.7;
+  margin-top: 0;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a,
+.footer-social a {
+  color: #f0f0f0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--brand-color);
+}
+
+.footer-social a {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.footer-social a:hover {
+  color: var(--brand-color);
+  transform: translateY(-2px);
+  display: inline-block;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #444;
+  padding-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh; /* Limit height */
+  overflow-y: auto; /* Scroll when overflowing */
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.close-btn {
+  float: right;
+  cursor: pointer;
+  color: #ff3b30;
+  font-size: 18px;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content button {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.modal-content button {
+  background: var(--brand-color);
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.modal-content button:hover {
+  background: var(--brand-color);
+}
+
+#addStepBtn {
+  background: #34c759;
+}
+
+/* Save button */
+.modal-content button[type="submit"] {
+  background: var(--brand-color);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 768px) {
+  /* Navbar */
+  header nav {
+    display: none; /* Hide nav by default */
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Position below header */
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+  }
+
+  header nav.active {
+    display: flex; /* Show nav when active */
+  }
+
+  header nav a {
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: block; /* Show hamburger icon */
+  }
+
+  /* CTA Banner */
+  .cta-content {
+    order: 2; /* Text comes after image on mobile */
+  }
+  .cta-image {
+    order: 1;
+  }
+  .modal-content form {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .modal-content input,
+  .modal-content select {
+    flex: 1 1 calc(50% - 10px);
+  }
+  #addStepBtn,
+  .modal-content button[type="submit"] {
+    flex: 1 1 100%;
+  }
+}

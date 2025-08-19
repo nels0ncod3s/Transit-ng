@@ -1,0 +1,233 @@
+/* Basic Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+  background-color: #0077c2; /* A nice blue */
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h2 {
+  margin: 0;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 500;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content Styles */
+.main-content {
+  padding-top: 2rem;
+}
+
+h1 {
+  color: #111;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Form Styles for Horizontal Layout */
+#routeForm {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line on smaller screens */
+  gap: 1.5rem; /* Space between form elements */
+  align-items: flex-end; /* Aligns items to the bottom */
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+input,
+select {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+button[type="submit"] {
+  padding: 0.75rem 1.5rem;
+  background-color: #28a745; /* Green */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+/* Result Styles */
+#result {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  line-height: 1.6;
+}
+
+#result h3 {
+  margin-top: 0;
+  color: #0077c2;
+}
+
+#result .summary {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+#result .summary li strong {
+  color: #555;
+}
+
+#result ol {
+  padding-left: 1.5rem;
+}
+
+#result li {
+  margin-bottom: 0.75rem;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh; /* Limit height */
+  overflow-y: auto; /* Scroll when overflowing */
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.close-btn {
+  float: right;
+  cursor: pointer;
+  color: #ff3b30;
+  font-size: 18px;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content button {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.modal-content button {
+  background: var(--brand-color);
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.modal-content button:hover {
+  background: #0062cc;
+}
+
+#addStepBtn {
+  background: #02751f;
+}
+
+/* Save button */
+.modal-content button[type="submit"] {
+  background: var(--brand-color);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Horizontal inputs on larger screens */
+@media (min-width: 480px) {
+  .modal-content form {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .modal-content input,
+  .modal-content select {
+    flex: 1 1 calc(50% - 10px);
+  }
+  #addStepBtn,
+  .modal-content button[type="submit"] {
+    flex: 1 1 100%;
+  }
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TransitNg</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="gemini.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h2>TransitNg</h2>
+        <nav id="main-nav">
+          <a href="about.html">About</a>
+          <a href="#">Contact</a>
+          <a href="API.html">API</a>
+        </nav>
+        <button id="menu-toggle" class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero-section">
+      <div class="container">
+        <h1>Find Your Easiest Route</h1>
+        <p class="subtitle">
+          Navigate Lagos with confidence. Enter your start and end points below.
+        </p>
+
+        <form id="routeForm">
+          <div class="form-group input-with-icon">
+            <i class="fa-solid fa-city"></i>
+            <select id="city" required>
+              <option value="">--Select City--</option>
+              <option value="Abia">Abia</option>
+              <option value="Adamawa">Adamawa</option>
+              <option value="Anambra">Anambra</option>
+              <option value="Akwa-Ibom">Akwa-Ibom</option>
+              <option value="Bauchi">Bauchi</option>
+              <option value="Bayelsa">Bayelsa</option>
+              <option value="Benue">Benue</option>
+              <option value="Borno">Borno</option>
+              <option value="Cross-Rivers">Cross-Rivers</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Abuja">Abuja</option>
+              <option value="Port Harcourt">Port Harcourt</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Abuja">Abuja</option>
+              <option value="Port Harcourt">Port Harcourt</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Abuja">Abuja</option>
+              <option value="Port Harcourt">Port Harcourt</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Abuja">Abuja</option>
+              <option value="Port Harcourt">Port Harcourt</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Abuja">Abuja</option>
+              <option value="Port Harcourt">Port Harcourt</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Abuja">Abuja</option>
+              <option value="Port Harcourt">Port Harcourt</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Abuja">Abuja</option>
+              <option value="Port Harcourt">Port Harcourt</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Abuja">Abuja</option>
+              <option value="Port Harcourt">Port Harcourt</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Abuja">Abuja</option>
+              <option value="Port Harcourt">Port Harcourt</option>
+            </select>
+          </div>
+
+          <div class="form-group input-with-icon">
+            <i class="fa-solid fa-location-arrow"></i>
+            <input
+              type="text"
+              id="current"
+              placeholder="Current Location"
+              required
+            />
+          </div>
+
+          <div class="form-group input-with-icon">
+            <i class="fa-solid fa-map-marker-alt"></i>
+            <input
+              type="text"
+              id="destination"
+              placeholder="Destination"
+              required
+            />
+          </div>
+
+          <button type="submit" class="hero-button">Get Route</button>
+        </form>
+      </div>
+    </section>
+
+    <div class="container results-container">
+      <div id="result"></div>
+    </div>
+
+    <section class="cta-banner">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Can't find your route?</h2>
+          <p>
+            Help expand our database by adding new routes for the community.
+          </p>
+          <button id="addRouteBtn">Add a New Route</button>
+        </div>
+        <div class="cta-image">
+          <img
+            src="transit.png"
+            alt="Illustration of a person adding a location to a map"
+          />
+        </div>
+      </div>
+
+      <!-- Modal for adding route -->
+      <div id="addRouteModal" class="modal">
+        <div class="modal-content">
+          <span id="closeModal" class="close-btn">X</span>
+          <h2>Add New Route</h2>
+          <form id="addRouteForm">
+            <input
+              type="text"
+              id="addCity"
+              placeholder="City (e.g., Lagos)"
+              required
+            /><br /><br />
+            <input
+              type="text"
+              id="addOrigin"
+              placeholder="Start Location"
+              required
+            /><br /><br />
+            <input
+              type="text"
+              id="addDestination"
+              placeholder="Destination"
+              required
+            /><br /><br />
+            <div id="stepsContainer"></div>
+            <button type="button" id="addStepBtn">+ Add New Step</button>
+            <br /><br />
+            <input
+              type="number"
+              id="addTotalPrice"
+              placeholder="Total Price"
+              required
+            /><br /><br />
+            <input
+              type="text"
+              id="addTime"
+              placeholder="Estimated Time (e.g., 45 mins)"
+              required
+            /><br /><br />
+            <button type="submit">Save Route</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <h3>TransitNg</h3>
+            <p>Your community-driven guide to navigating public transport.</p>
+          </div>
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="API.html">API</a></li>
+            </ul>
+          </div>
+          <div class="footer-social">
+            <h4>Connect With Us</h4>
+            <a href="https://www.twitter.com/trxpznxl"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 TransitNg. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="addRouteModal" class="modal"></div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
+    <script src="nu.js"></script>
+    <script>
+      // Simple script for mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const mainNav = document.getElementById("main-nav");
+      menuToggle.addEventListener("click", () => {
+        mainNav.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

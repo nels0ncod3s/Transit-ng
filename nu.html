@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TransitLagos</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Simple popup modal styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 10;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 400px;
+        width: 90%;
+      }
+      .close-btn {
+        float: right;
+        cursor: pointer;
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h2>TransitLagos</h2>
+        <nav>
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">API</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container main-content">
+      <h1>Find Your Route</h1>
+
+      <form id="routeForm">
+        <div class="form-group">
+          <label for="city">Select City:</label>
+          <select id="city" required>
+            <option value="">--Select--</option>
+            <option value="Lagos">Lagos</option>
+            <option value="Abuja">Abuja</option>
+            <option value="Port Harcourt">Port Harcourt</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="current">Current Location:</label>
+          <input type="text" id="current" placeholder="e.g., Yaba" required />
+        </div>
+
+        <div class="form-group">
+          <label for="destination">Destination:</label>
+          <input
+            type="text"
+            id="destination"
+            placeholder="e.g., Ikeja"
+            required
+          />
+        </div>
+
+        <button type="submit">Get Route</button>
+      </form>
+
+      <button id="addRouteBtn">+ Add Route</button>
+      <div id="result"></div>
+    </div>
+
+    <!-- Modal for adding route -->
+    <div id="addRouteModal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal" class="close-btn">X</span>
+        <h2>Add New Route</h2>
+        <form id="addRouteForm">
+          <input
+            type="text"
+            id="addCity"
+            placeholder="City (e.g., Lagos)"
+            required
+          /><br /><br />
+          <input
+            type="text"
+            id="addOrigin"
+            placeholder="Start Location"
+            required
+          /><br /><br />
+          <input
+            type="text"
+            id="addDestination"
+            placeholder="Destination"
+            required
+          /><br /><br />
+          <div id="stepsContainer"></div>
+          <button type="button" id="addStepBtn">+ Add Step</button>
+          <br /><br />
+          <input
+            type="number"
+            id="addTotalPrice"
+            placeholder="Total Price"
+            required
+          /><br /><br />
+          <input
+            type="text"
+            id="addTime"
+            placeholder="Estimated Time (e.g., 45 mins)"
+            required
+          /><br /><br />
+          <button type="submit">Save Route</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Supabase client -->
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
+    <script src="nu.js"></script>
+  </body>
+</html>
